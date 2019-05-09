@@ -2,7 +2,9 @@ package com.chasegarsee.zoo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
+@EnableJpaAuditing
 @SpringBootApplication
 public class ZooApplication
 {
@@ -11,5 +13,4 @@ public class ZooApplication
     {
         SpringApplication.run(ZooApplication.class, args);
     }
-
 }
