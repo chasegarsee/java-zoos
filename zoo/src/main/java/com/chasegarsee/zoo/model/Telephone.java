@@ -1,5 +1,8 @@
 package com.chasegarsee.zoo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -9,30 +12,40 @@ public class Telephone
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long telephoneid;
+    private long phoneid;
 
     private String phonetype;
     private String phonenumber;
+
+    @ManyToOne
+    @JoinColumn(name = "zooid")
+    @JsonIgnore
+    private Zoo zoo;
 
 
     public Telephone()
     {
     }
 
-    public Telephone(String phonetype, String phonenumber)
+
+
+
+    public Telephone(Long telephoneid, String phonetype, String phonenumber, Zoo zoo)
     {
+        this.phoneid = telephoneid;
         this.phonetype = phonetype;
         this.phonenumber = phonenumber;
+        this.zoo = zoo;
     }
 
     public long getTelephoneid()
     {
-        return telephoneid;
+        return phoneid;
     }
 
     public void setTelephoneid(long telephoneid)
     {
-        this.telephoneid = telephoneid;
+        this.phoneid = telephoneid;
     }
 
     public String getPhonetype()
@@ -53,5 +66,15 @@ public class Telephone
     public void setPhonenumber(String phonenumber)
     {
         this.phonenumber = phonenumber;
+    }
+
+    public Zoo getZoo()
+    {
+        return zoo;
+    }
+
+    public void setZoo(Zoo zoo)
+    {
+        this.zoo = zoo;
     }
 }

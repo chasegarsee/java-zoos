@@ -1,6 +1,7 @@
 package com.chasegarsee.zoo.service;
 
 
+import com.chasegarsee.zoo.repository.TelephoneRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,5 +9,5 @@ import org.springframework.stereotype.Service;
 public class TelephoneServiceImpl implements TelephoneService
 {
     @Autowired
-    private TelephoneService telephonerepos;
+    private TelephoneRepository telephonerepos;
 }
